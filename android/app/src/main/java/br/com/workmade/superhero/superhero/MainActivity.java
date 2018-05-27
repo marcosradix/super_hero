@@ -1,4 +1,4 @@
-package br.com.workmade.superhero.superhero;
+package br.com.workmade.superhero;
 
 import android.os.Bundle;
 

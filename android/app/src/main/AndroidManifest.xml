@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.workmade.superhero.superhero">
+    package="br.com.workmade.superhero">
 
     <!-- The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
