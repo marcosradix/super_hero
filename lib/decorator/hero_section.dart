@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:super_hero/service/callMessageService/callsAndMessagesService.dart';
 
 class HeroSection extends StatelessWidget {
-  HeroSection({this.nome});
+  HeroSection({this.nome, this.service});
   final String nome;
+  final CallsAndMessagesService service;
+
 
   @override
   Widget build(BuildContext context) {
-
     return new Container(
       padding: new EdgeInsets.all(10.0),
       child: new Row(
@@ -19,9 +21,14 @@ class HeroSection extends StatelessWidget {
                   nome,
                   style: new TextStyle(fontSize: 20.0, color: Colors.blue),
                 ),
-                new Text(
-                  "${nome.toLowerCase()}\@gmail.com",
-                  style: new TextStyle(fontSize: 17.0, color: Colors.grey),
+                GestureDetector(
+                  child: new Text(
+                    "${nome.toLowerCase()}\@gmail.com",
+                    style: new TextStyle(fontSize: 17.0, color: Colors.grey),
+                  ),
+                  onTap: (){
+                    service.sendEmail("${nome.toLowerCase()}\@gmail.com");
+                  },
                 ),
               ],
             ),

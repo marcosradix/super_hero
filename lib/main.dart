@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:super_hero/service/callMessageService/callsAndMessagesService.dart';
 import 'detail/detail.dart';
 import 'object_load/nome_heros.dart';
 
-void main() => runApp(new MyApp());
+
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -22,6 +29,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Container> _dafStarSuperHero = new List();
   NomeHeroLoad nomeHeroLoad = new NomeHeroLoad();
+  final CallsAndMessagesService _service = locator<CallsAndMessagesService>();
+
+
 
   _criarLista() async {
     for (var i = 0; i < nomeHeroLoad.nomeHeros.length; i++) {
@@ -39,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Material(
                 child: new InkWell(
                   onTap: ()=> Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (BuildContext context) => new Detail(nome: nomeHero["nome"], imagem: nomeHero["imagem"]),
+                    builder: (BuildContext context) => new Detail(nome: nomeHero["nome"], imagem: nomeHero["imagem"],service: _service,),
                   )),
                   child: new Image.asset("img/$imageHero", fit: BoxFit.cover),
                 ),
@@ -79,4 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+}
+GetIt locator = GetIt.instance;
+void setupLocator() {
+  locator.registerSingleton(CallsAndMessagesService());
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:super_hero/service/callMessageService/callsAndMessagesService.dart';
 
 class IconText extends StatelessWidget {
-  IconText({this.icon, this.text, this.nomeHero});
+  IconText({this.icon, this.text, this.nomeHero, this.service});
   final IconData icon;
   final String text;
   final String nomeHero;
+  final CallsAndMessagesService service;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,12 @@ class IconText extends StatelessWidget {
                 color: Colors.blue,
               ),
               onTap: () {
+                if(icon == Icons.call){
+                service.call("*144");
+                }
+                if(icon == Icons.message){
+                service.sendSms("3333");                  
+                }
                 final snackBar = new SnackBar(
                     content: new Text(
                       "${this.text}  ${this.nomeHero}",

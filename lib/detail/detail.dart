@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_hero/service/callMessageService/callsAndMessagesService.dart';
 
 import '../decorator/hero_clother.dart';
 
@@ -6,9 +7,11 @@ import '../decorator/hero_icon.dart';
 import '../decorator/hero_section.dart';
 
 class Detail extends StatelessWidget {
-  Detail({this.nome, this.imagem});
+  Detail({this.nome, this.imagem, this.service});
   final String nome;
   final String imagem;
+  final CallsAndMessagesService service;
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,8 @@ class Detail extends StatelessWidget {
             ),
            
           ),
-          new HeroSection(nome: nome),
-          new HeroIcon(this.nome),
+          new HeroSection(nome: nome, service: service,),
+          new HeroIcon(this.nome, service),
           new HeroClother(),
         ],
       ),
