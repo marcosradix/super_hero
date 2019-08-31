@@ -1,0 +1,7 @@
+// This is a generated file; do not edit or check into version control.
+FLUTTER_ROOT=/Users/marcosferreira/flutter
+FLUTTER_APPLICATION_PATH=/Users/marcosferreira/Desktop/flutter_apps/super_hero
+FLUTTER_TARGET=/Users/marcosferreira/Desktop/flutter_apps/super_hero/lib/main.dart
+FLUTTER_BUILD_DIR=build
+SYMROOT=${SOURCE_ROOT}/../build/ios
+FLUTTER_FRAMEWORK_DIR=/Users/marcosferreira/flutter/bin/cache/artifacts/engine/ios

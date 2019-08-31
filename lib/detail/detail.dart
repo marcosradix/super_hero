@@ -16,6 +16,11 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+               leading: new IconButton(
+               icon: new Icon(Icons.arrow_back, color: Colors.white),
+               onPressed: () => Navigator.pop(context),
+              ) ),
       body: new ListView(
         children: <Widget>[
           new Container(
@@ -25,10 +30,10 @@ class Detail extends StatelessWidget {
               child: new Material(
                 child: new InkWell(
                    child: new Image.asset("img/$imagem", fit: BoxFit.cover,),
+                   onDoubleTap: () => Navigator.pop(context),
                 ),
               ),
             ),
-           
           ),
           new HeroSection(nome: nome, service: service,),
           new HeroIcon(this.nome, service),
